@@ -1,13 +1,19 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@200;300;400;500;600;700&display=swap");
+
+:root {
+  --bg-color: #f9f3ee;
+  --primary-color: #daaa63;
+  --text-color: #2c1810;
+  --secondary-color: #f2e5d0;
+
+  --bg-dark-mode-color: #060c11;
+  --primary-dark-mode-color: #25559c;
+  --text-dark-mode-color: #d3e7ef;
+  --secondary-dark-mode-color: #0d1a2f;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+body {
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  font-family: "Libre Caslon Text", serif;
 }
