@@ -27,12 +27,15 @@ const Header = () => {
 
       <div className="end-nav">
         <span
-          class="material-icons md-36"
+          className="material-icons md-36"
           onClick={() => setShowDropDownMenu(!showDropDownMenu)}
         >
           expand_circle_down
         </span>
-        <span>
+        <span
+          onMouseEnter={() => setShowDropDownMenu(true)}
+          onMouseLeave={() => setShowDropDownMenu(false)}
+        >
           {showDropDownMenu && (
             <div className="dropdownmenu">
               <DropdownMenu />
@@ -41,13 +44,13 @@ const Header = () => {
         </span>
 
         <Link to="/user-details">
-          <span class="material-icons md-36">account_circle</span>
+          <span className="material-icons md-36">account_circle</span>
         </Link>
       </div>
 
       <div id="hamburger">
         <span>
-          <span class="material-icons md-36">menu</span>
+          <span className="material-icons md-36">menu</span>
         </span>
       </div>
     </nav>

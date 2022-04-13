@@ -1,8 +1,3 @@
-/**
- * Videos Database can be added here.
- * You can add videos of your wish with different attributes
- * */
-
 export const videos = [
   {
     _id: "SvDuepNSJtU",
@@ -35,7 +30,7 @@ export const videos = [
   },
   {
     _id: "9Zdcrof7l_I",
-    thumbnail: "https://i3.ytimg.com/vi/9Zdcrof7l_I/hqdefault.jpg",
+    thumbnail: "https://i3.ytimg.com/vi/9Zdcrof7l_I/maxresdefault.jpg",
     title: "Rahat Indori - Mahfil-E-Tahzeeb",
     description: " ",
     creator: "Mahfil e Tahzeeb ",
@@ -55,15 +50,15 @@ export const videos = [
   {
     _id: "V1n8icU8Akg",
     thumbnail: "https://i3.ytimg.com/vi/V1n8icU8Akg/maxresdefault.jpg",
-    title: "Morari Bapu Ramkatha Bareilly ",
+    title: "Waseem Barelvi | Grand Mushaira",
     description: "",
-    creator: "Sangeet Duniya",
+    creator: "Jashn-e-Rekhta",
     author: "Waseem Barelvi",
     category: "Mushaira",
   },
   {
     _id: "fFBZ2PO5di0",
-    thumbnail: "https://i3.ytimg.com/vi/fFBZ2PO5di0/0.jpg",
+    thumbnail: "https://i3.ytimg.com/vi/fFBZ2PO5di0/maxresdefault.jpg",
     title: "JOHN ELIA- जश्‍न-ए-कैफ़ी ",
     description: "",
     creator: "जश्‍न-ए-कैफ़ी ",
@@ -110,7 +105,7 @@ export const videos = [
   },
   {
     _id: "HkZKM5GmX48",
-    thumbnail: "https://i3.ytimg.com/vi/HkZKM5GmX48/hqdefault.jpg",
+    thumbnail: "https://i3.ytimg.com/vi/HkZKM5GmX48/maxresdefault.jpg",
     title: "Piyush Mishra | Wo kaam Bhala kya kaam ",
     description: "",
     creator: "Wah Wah",
@@ -128,24 +123,14 @@ export const videos = [
     category: "Story Telling",
   },
   {
-    _id: "dMeqOeh3tII",
-    thumbnail: "https://i3.ytimg.com/vi/dMeqOeh3tII/0.jpg",
+    _id: "wozLsbo51D4",
+    thumbnail: "https://i3.ytimg.com/vi/wozLsbo51D4/maxresdefault.jpg",
     title: "Kuch Ishq Kiya Kuch Kaam Kiya | Piyush Mishra ",
     description:
       "An angry, beautiful and an honest letter to ex girlfriends, written by Piyush Mishra while he was in conversation with Manoj Singh Kukreja at GIFLIF Fest",
-    creator: "Waah Waah",
+    creator: "GIFLIF Fest",
     author: "Piyush Mishra",
-    category: "Mushaira",
-  },
-  {
-    _id: "2BXmSTMp45o",
-    thumbnail: "https://i3.ytimg.com/vi/2BXmSTMp45o/0.jpg",
-    title: "आरम्भ है प्रचंड ",
-    description:
-      "An angry, beautiful and an honest letter to ex girlfriends, written by Piyush Mishra while he was in conversation with Manoj Singh Kukreja at GIFLIF Fest",
-    creator: "Waah Waah",
-    author: "Piyush Mishra",
-    category: "Gazal",
+    category: "Story Telling",
   },
   {
     _id: "6c94Hu8x6C0",
@@ -170,7 +155,8 @@ export const videos = [
   {
     _id: "Uw-aINa2SCo",
     thumbnail: "http://i3.ytimg.com/vi/Uw-aINa2SCo/hqdefault.jpg",
-    title: "Maithili Thakur | A Tribute To Nusrat Fateh Ali Khan",
+    title:
+      "Maithili Thakur | A Tribute To Nusrat Fateh Ali Khan | Jashn-e-Rekhta 2019",
     description:
       "Internet sensation , Maithili Thakur  and her brothers Rishav Thakur and Ayachi Thakur perform a spectacular qawwali medley at the 6th edition of Jashn-e-Rekhta. ",
     creator: "Jashn-e-Rekhta",
@@ -189,7 +175,7 @@ export const videos = [
   },
   {
     _id: "0avtznDR3x0",
-    thumbnail: "http://i3.ytimg.com/vi/0avtznDR3x0/maxresdefault.jpg",
+    thumbnail: "http://i3.ytimg.com/vi/buAc1N97zIw/maxresdefault.jpg",
     title: "Bhool Jaana | Manoj Muntashir Shayari | Hindi Poetry",
     description:
       "Manoj Muntashir, Bollywood's most celebrated writer and lyricist, shares a beautiful poetry about moving on after a break up",

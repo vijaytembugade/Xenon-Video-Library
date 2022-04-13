@@ -1,2 +1,5 @@
 /* font-family: 'Libre Caslon Text', serif;
 font-family: 'Montserrat', sans-serif; */
+.main-container {
+  margin: 1.5rem 0 2rem 0;
+}
