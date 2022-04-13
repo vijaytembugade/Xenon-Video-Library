@@ -1,0 +1,109 @@
+nav {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1rem 3rem 0rem;
+  position: static;
+  z-index: 0;
+  height: 4rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+}
+
+.nav-brand {
+  margin-right: 0;
+  width: 0;
+  min-width: 0;
+  background-color: #f1f1f1;
+  padding: 0rem;
+  border-radius: 0;
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  align-items: center;
+  cursor: pointer;
+}
+
+.nav-brand > .aayat-logo {
+  width: 5rem;
+  height: 2.5rem;
+  transform: scale(3);
+}
+
+.nav-brand > img {
+  width: 4rem;
+}
+
+/* hamburder styles */
+#hamburger {
+  display: none;
+}
+
+/* middle-nav-content */
+.middle-nav-content {
+  display: flex;
+  gap: 1rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.middle-nav {
+  display: flex;
+  gap: 0.3rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+}
+.middle-nav.active {
+  background-color: var(--primary-color);
+}
+
+/* end navbar content */
+.end-nav {
+  display: flex;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+/* dropdown styles */
+.dropdownmenu {
+  position: relative;
+  top: 100%;
+  right: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+  .nav-brand {
+    margin-right: auto;
+  }
+  .nav-brand > img {
+    width: 2rem;
+  }
+  nav {
+    height: 2rem;
+    padding: 1rem 1rem 0rem;
+  }
+  .nav-brand > .aayat-logo {
+    width: 5rem;
+    height: 3rem;
+    transform: scale(2);
+  }
+
+  #hamburger {
+    display: block;
+    padding: 0.5rem;
+  }
+  .middle-nav-content {
+    display: none;
+  }
+  .end-nav {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .nav-brand {
+    margin-left: 1rem;
+  }
+}
