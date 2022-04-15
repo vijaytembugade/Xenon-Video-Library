@@ -1,0 +1,39 @@
+.videoCard {
+  height: 16rem;
+  width: 20rem;
+  cursor: pointer;
+}
+.video-thumbnail {
+  width: 20rem;
+  height: 10rem;
+}
+.video-thumbnail > img {
+  box-sizing: border-box;
+  width: 100%;
+  object-fit: cover;
+  height: 10rem;
+  border: 5px solid var(--secondary-color);
+}
+.video-title {
+  height: 4rem;
+}
+.video-creator {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+}
+.all-videos-title {
+  text-align: center;
+}
+@media only screen and (max-width: 768px) {
+  .video-title {
+    height: fit-content;
+  }
+  .videoCard {
+    height: 18rem;
+    width: 15rem;
+  }
+  .video-thumbnail {
+    width: 15rem;
+    height: 10rem;
+  }
+}

@@ -11,6 +11,10 @@
   --primary-dark-mode-color: #25559c;
   --text-dark-mode-color: #d3e7ef;
   --secondary-dark-mode-color: #0d1a2f;
+
+  --primary-color-shade: #daaa63b7;
+  --secondary-color-shade: #f2e5d07d;
+  --ternary-color-shade: #ffeaed;
 }
 
 body {
