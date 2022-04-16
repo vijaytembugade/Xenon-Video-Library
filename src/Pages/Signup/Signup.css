@@ -1,0 +1,18 @@
+.signup-background {
+  background: linear-gradient(
+      rgba(249, 243, 238, 0.99),
+      rgba(249, 243, 238, 0.6),
+      rgba(249, 243, 238, 0.3),
+      rgba(249, 243, 238, 0.6),
+      rgba(249, 243, 238, 0.99)
+    ),
+    url("https://u7.uidownload.com/vector/450/1000/vector-pink-shiny-background-eps.jpg");
+  background-size: cover;
+}
+.signup-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+  align-items: center;
+}

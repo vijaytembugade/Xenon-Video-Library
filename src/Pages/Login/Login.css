@@ -1,0 +1,18 @@
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  margin-top: 5rem;
+  flex-direction: column;
+}
+.login-background {
+  background: linear-gradient(
+      rgba(249, 243, 238, 0.99),
+      rgba(249, 243, 238, 0.6),
+      rgba(249, 243, 238, 0.3),
+      rgba(249, 243, 238, 0.6),
+      rgba(249, 243, 238, 0.99)
+    ),
+    url("https://u7.uidownload.com/vector/252/114/vector-light-creamy-floral-ethnic-background-vector-eps-ai.jpg");
+}
