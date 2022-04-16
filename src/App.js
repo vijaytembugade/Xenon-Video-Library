@@ -8,6 +8,7 @@ import Notify from "./Componets/Notify/Notify";
 import UserDetails from "./Pages/UserDetails/UserDetails";
 import PrivateRoutes from "./Componets/PrivateRoutes/PrivateRoutes";
 import Signup from "./Pages/Signup/Signup";
+import VideoDetails from "./Pages/VideoDetails/VideoDetails";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/videos" element={<VideoListing />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/videos/:id" element={<VideoDetails />} />
           <Route
             path="/user-details"
             element={

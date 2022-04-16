@@ -1,9 +1,11 @@
 import React from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./VideoCard.css";
 
 const VideoCard = ({ video }) => {
+  const navigate = useNavigate();
   return (
-    <div className="videoCard">
+    <div className="videoCard" onClick={() => navigate(`/videos/${video._id}`)}>
       <div className="video-thumbnail">
         <img className="" src={video.thumbnail} alt={video.title} />
       </div>

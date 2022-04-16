@@ -67,7 +67,7 @@ export const videos = [
     title: "JOHN ELIA- जश्‍न-ए-कैफ़ी ",
     description: "",
     creator: "जश्‍न-ए-कैफ़ी ",
-    author: "John Elia",
+    author: "Jaun Elia",
     category: "Mushaira",
   },
   {
@@ -205,7 +205,7 @@ export const videos = [
     description:
       "Let Parth Vasani take you back to the writings of the eminent Urdu poet Jaun Elia, and discover the man behind those celebrated ghazals and shayari.",
     creator: "KalArt",
-    author: "Jaun Alia",
+    author: "Jaun Elia",
     category: "Poetry",
   },
   {
@@ -215,7 +215,7 @@ export const videos = [
     description:
       "Maithili Thakur performs one of the most popular qawwali of all times Chaap Tilak written by Amir Khusro and popularized by Nusrat Fateh Ali Khan.",
     creator: "Jashn-e-Rekhta",
-    author: " Maithili Thakur ",
+    author: " Maithili Thakur",
     category: "Qawwali",
   },
   {
@@ -225,7 +225,7 @@ export const videos = [
     description:
       "Watch this unforgettable performance by The Wadali Brothers at the 5th Jashn-eRekhta 2018.The inauguration of Jashn-e-Rekhta was followed by a terrific musical performance featuring the inimitable Wadalis - Puran Chand Wadali and his son Lakhwinder Singh Wadali, which left the cheering audience asking for more. They sang one of their most famous qawwalis `Tu mane ya na mane dildara`.",
     creator: "Jashn-e-Rekhta",
-    author: " Wadali Brothers ",
+    author: " Wadali Brothers",
     category: "Qawwali",
   },
   {
