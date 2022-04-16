@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import ReactPlayerFrame from "../../Componets/ReactPlayer/ReactPlayerFrame";
 import VideoDescription from "../../Componets/VideoDescription/VideoDescription";
 import VideoCard from "../../Componets/VideoCard/VideoCard";
@@ -9,8 +9,7 @@ import "./VideoDetails.css";
 function VideoDetails() {
   const [video, setVideo] = useState("");
   const { id } = useParams();
-
-  console.log(video);
+  const navigate = useNavigate();
 
   const [suggestions, setSuggestions] = useState([]);
 
@@ -19,7 +18,7 @@ function VideoDetails() {
       const { data } = await getSingleVideoService(id);
       setVideo(data.video);
     })();
-  }, []);
+  }, [id]);
 
   useEffect(() => {
     (async () => {
@@ -36,14 +35,13 @@ function VideoDetails() {
 
   return (
     <>
-      <Link to="/videos">
-        <span
-          title="videos"
-          class="material-icons back-btn btn-float btn-secondary"
-        >
-          arrow_back
-        </span>
-      </Link>
+      <span
+        title="videos"
+        class="material-icons back-btn btn-float btn-secondary"
+        onClick={() => navigate(-1)}
+      >
+        arrow_back
+      </span>
       <div className="video-details-page">
         <div className="video-details-container">
           <ReactPlayerFrame video={video} />
