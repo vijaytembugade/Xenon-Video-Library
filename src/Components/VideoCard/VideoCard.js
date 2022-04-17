@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import PlaylistModal from "../PlayListModal/PlaylistModal";
 import "./VideoCard.css";
 
 const VideoCard = ({ video }) => {
   const navigate = useNavigate();
+  const [showPlayListModal, setShowPlayListModal] = useState(false);
+
+  function handlePlayList(e) {
+    e.stopPropagation();
+    setShowPlayListModal(true);
+  }
   return (
     <div className="videoCard" onClick={() => navigate(`/videos/${video._id}`)}>
       <div className="video-thumbnail">
@@ -17,7 +24,7 @@ const VideoCard = ({ video }) => {
             <span class="material-icons md-24">watch_later</span>
             <span>Watch later</span>
           </span>
-          <span className="tool">
+          <span className="tool" onClick={handlePlayList}>
             <span class="material-icons md-24">playlist_add</span>
             <span>Add to playlist</span>
           </span>
@@ -32,6 +39,12 @@ const VideoCard = ({ video }) => {
         <span>{video.creator}</span>
         <span class="material-icons md-18">check_circle</span>
       </div>
+      {showPlayListModal && (
+        <PlaylistModal
+          setShowPlayListModal={setShowPlayListModal}
+          video={video}
+        />
+      )}
     </div>
   );
 };

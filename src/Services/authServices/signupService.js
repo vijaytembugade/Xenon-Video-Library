@@ -8,16 +8,12 @@ export const signupService = async (
   token
 ) => {
   try {
-    const response = await axios.post(
-      "/api/auth/signup",
-      {
-        email,
-        password,
-        firstName,
-        lastName,
-      },
-      { headers: { authorization: token } }
-    );
+    const response = await axios.post("/api/auth/signup", {
+      email,
+      password,
+      firstName,
+      lastName,
+    });
 
     return response;
   } catch (error) {

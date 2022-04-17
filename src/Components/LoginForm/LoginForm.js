@@ -13,15 +13,12 @@ const LoginForm = () => {
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
-  const {
-    state: { token },
-    dispatch: authDispatch,
-  } = useAuth();
+  const { dispatch: authDispatch } = useAuth();
 
   async function handleSubmit(e) {
     e.preventDefault();
     authDispatch({ type: LOGIN_REQUEST });
-    const response = await loginService(email, password, token);
+    const response = await loginService(email, password);
 
     console.log(response);
     if (response !== undefined && response.status === 200) {

@@ -1,0 +1,63 @@
+.playlist-modal {
+  z-index: 99;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  cursor: default;
+}
+.playlist-dialog {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border: 3px solid var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+}
+.playlist-listing {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.playlist-name.selected {
+  background-color: var(--primary-color);
+}
+.playlist-name.selected:hover {
+  background-color: var(--primary-color);
+}
+
+.playlist-name {
+  padding: 5px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.playlist-name:hover {
+  background-color: var(--bg-color);
+}
+
+.add-to-playlist {
+  margin: 0.5rem 0.5rem;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.create-playlist-container {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 0rem 0rem;
+}
+
+input.create-playlist {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid black;
+  border-radius: 0;
+}

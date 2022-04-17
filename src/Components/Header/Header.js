@@ -21,8 +21,8 @@ const Header = () => {
   return (
     <nav>
       <div className="nav-brand" onClick={() => navigate("/")}>
-        <img src="logo.png" alt="aayat" />
-        <img className="aayat-logo" src="assets/logo.png" alt="Xenon" />
+        <img src="/logo.png" alt="aayat" />
+        <img className="aayat-logo" src="/assets/logo.png" alt="Xenon" />
       </div>
 
       <section className="middle-nav-content">
