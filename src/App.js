@@ -1,12 +1,12 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import Header from "./Componets/Header/Header";
+import Header from "./Components/Header/Header";
 import Login from "./Pages/Login/Login";
 import { VideoListing } from "./Pages/VideoListing/VideoListing";
 
-import Notify from "./Componets/Notify/Notify";
+import Notify from "./Components/Notify/Notify";
 import UserDetails from "./Pages/UserDetails/UserDetails";
-import PrivateRoutes from "./Componets/PrivateRoutes/PrivateRoutes";
+import PrivateRoutes from "./Components/PrivateRoutes/PrivateRoutes";
 import Signup from "./Pages/Signup/Signup";
 import VideoDetails from "./Pages/VideoDetails/VideoDetails";
 

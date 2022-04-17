@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import ReactPlayerFrame from "../../Componets/ReactPlayer/ReactPlayerFrame";
-import VideoDescription from "../../Componets/VideoDescription/VideoDescription";
-import VideoCard from "../../Componets/VideoCard/VideoCard";
+import ReactPlayerFrame from "../../Components/ReactPlayer/ReactPlayerFrame";
+import VideoDescription from "../../Components/VideoDescription/VideoDescription";
+import VideoCard from "../../Components/VideoCard/VideoCard";
 import { getSingleVideoService, getSuggestionsVideo } from "../../Services";
 import "./VideoDetails.css";
 
