@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import DropdownMenu from "../DropdownMenu/DropdownMenu";
 import { useAuth } from "../../Contexts";
 
 import "./Header.css";
+import useOnClickOutside from "../../Hooks/useOnClickOutside";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -12,6 +13,10 @@ const Header = () => {
   } = useAuth();
 
   const [showDropDownMenu, setShowDropDownMenu] = useState(false);
+
+  const ref = useRef();
+
+  useOnClickOutside(ref, () => setShowDropDownMenu(false));
 
   return (
     <nav>
@@ -39,16 +44,13 @@ const Header = () => {
         <div className="end-nav">
           <span
             className="material-icons md-36"
-            onClick={() => setShowDropDownMenu(!showDropDownMenu)}
+            onClick={() => setShowDropDownMenu(true)}
           >
             expand_circle_down
           </span>
-          <span
-            onMouseEnter={() => setShowDropDownMenu(true)}
-            onMouseLeave={() => setShowDropDownMenu(false)}
-          >
+          <span>
             {showDropDownMenu && (
-              <div className="dropdownmenu">
+              <div className="dropdownmenu" ref={ref}>
                 <DropdownMenu />
               </div>
             )}

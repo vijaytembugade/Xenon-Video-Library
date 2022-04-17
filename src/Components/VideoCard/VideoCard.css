@@ -1,0 +1,74 @@
+.videoCard {
+  height: 16rem;
+  width: 20rem;
+  cursor: pointer;
+}
+.video-thumbnail {
+  width: 20rem;
+  height: 10rem;
+  position: relative;
+}
+.video-thumbnail > img {
+  box-sizing: border-box;
+  width: 100%;
+  object-fit: cover;
+  height: 10rem;
+  border: 5px solid var(--secondary-color);
+}
+.video-title {
+  height: 4rem;
+}
+.video-creator {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+}
+.all-videos-title {
+  text-align: center;
+}
+
+.video-thumbnail:hover .video-tools {
+  display: flex;
+}
+.video-thumbnail:focus .video-tools {
+  display: flex;
+}
+
+.video-tools {
+  height: 3rem;
+  display: none;
+  position: absolute;
+  bottom: 2%;
+  z-index: 9;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: inherit;
+  border-left: 5px solid var(--secondary-color);
+  border-right: 5px solid var(--secondary-color);
+  justify-content: space-evenly;
+}
+
+.video-tools .tool {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  color: var(--secondary-color);
+  font-size: 0.8rem;
+  padding: 1rem;
+}
+
+.video-tools .tool:hover {
+  color: var(--primary-color);
+}
+@media only screen and (max-width: 768px) {
+  .video-title {
+    height: fit-content;
+  }
+  .videoCard {
+    height: 18rem;
+    width: 15rem;
+  }
+  .video-thumbnail {
+    width: 15rem;
+    height: 10rem;
+  }
+}

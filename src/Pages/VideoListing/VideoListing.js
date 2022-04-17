@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./VideoListing.css";
-import VideoCard from "../../Componets/VideoCard/VideoCard";
+import VideoCard from "../../Components/VideoCard/VideoCard";
 import { useVideos } from "../../Contexts";
-import Filters from "../../Componets/Filters/Filters";
+import Filters from "../../Components/Filters/Filters";
 
 export const VideoListing = () => {
   const [showFilter, setShowFilter] = useState(false);
