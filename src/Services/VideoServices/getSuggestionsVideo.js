@@ -1,7 +1,6 @@
 import axios from "axios";
 
 export const getSuggestionsVideo = async (author, id, creator) => {
-  console.log(author);
   try {
     const response = await axios.get("/api/videos");
 
