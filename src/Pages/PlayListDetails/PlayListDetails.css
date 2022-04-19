@@ -1,0 +1,61 @@
+.playlistdetails-container {
+  margin: 2rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.playlistdetails-details {
+  flex: 0.4;
+}
+.playlist-details-action {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 18rem;
+  padding: 1rem;
+}
+.playlist-title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2rem;
+  padding: 1rem 0rem;
+  font-weight: 600;
+}
+.playlist-delete:hover {
+  cursor: pointer;
+}
+.playlist-thumnail {
+  height: 10rem;
+  width: 18rem;
+}
+.playlist-content {
+  flex: 0.6;
+  height: 75vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+}
+.delete-playlist-button {
+  position: absolute;
+  right: 0;
+  padding: 0rem 0.5rem;
+}
+.delete-playlist-button:hover {
+  color: var(--danger-color);
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 1000px) {
+  .playlistdetails-container {
+    margin: 1rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .playlistdetails-details {
+    flex: 1;
+  }
+  .playlist-content {
+    flex: 1;
+  }
+}

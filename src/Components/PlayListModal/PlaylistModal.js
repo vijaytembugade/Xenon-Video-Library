@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import "./PlayListModal.css";
 import useOnClickOutside from "../../Hooks/useOnClickOutside";
 import { useAuth, usePlayList } from "../../Contexts";
@@ -9,10 +9,13 @@ import {
 } from "../../Services";
 import toast from "react-hot-toast";
 import { SET_PLAYLIST } from "../../Constants";
+import { matchPath, useLocation } from "react-router-dom";
 
-const PlaylistModal = ({ setShowPlayListModal, video }) => {
+const PlaylistModal = ({ setShowPlayListModal, video = "" }) => {
   const [inputPlaylist, setInputPlaylist] = useState("");
   const [selectedPlaylistId, setselectedPlaylistId] = useState("");
+
+  const { pathname } = useLocation();
 
   const {
     state: { playList },
@@ -24,6 +27,11 @@ const PlaylistModal = ({ setShowPlayListModal, video }) => {
   } = useAuth();
 
   const modalRef = useRef();
+  const inputRef = useRef();
+
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
 
   useOnClickOutside(modalRef, () => setShowPlayListModal(false));
 
@@ -44,6 +52,10 @@ const PlaylistModal = ({ setShowPlayListModal, video }) => {
       toast.error(error.message);
     }
     setInputPlaylist("");
+
+    if (matchPath("/my-playlist", pathname)) {
+      setShowPlayListModal(false);
+    }
   }
 
   function handleSelectPlayList(id) {
@@ -105,6 +117,7 @@ const PlaylistModal = ({ setShowPlayListModal, video }) => {
             placeholder="Create new playlist.."
             value={inputPlaylist}
             onChange={(e) => setInputPlaylist(e.target.value)}
+            ref={inputRef}
           />
           <button
             className="btn btn-small btn-primary-outline create-playlist-button"
@@ -113,35 +126,40 @@ const PlaylistModal = ({ setShowPlayListModal, video }) => {
             Create
           </button>
         </div>
-        <div className="playlist-listing">
-          {playList.length > 0
-            ? playList?.map((item, index) => {
-                return (
-                  <div
-                    className={
-                      selectedPlaylistId === item._id ||
-                      videoIncludedPlayLists.includes(item.title)
-                        ? "playlist-name selected"
-                        : "playlist-name"
-                    }
-                    key={index}
-                    onClick={() => handleSelectPlayList(item._id)}
-                  >
-                    <span>{index + 1}. </span>
-                    <span>{item.title}</span>
-                  </div>
-                );
-              })
-            : "No playlist avilable"}
-        </div>
 
-        <button
-          disabled={playList.length > 0 ? false : true}
-          className="add-to-playlist btn btn-small btn-secondary"
-          onClick={handleAddToPlayList}
-        >
-          Add to Playlist
-        </button>
+        {!matchPath("/my-playlist", pathname) && (
+          <div className="playlist-listing">
+            {playList.length > 0
+              ? playList?.map((item, index) => {
+                  return (
+                    <div
+                      className={
+                        selectedPlaylistId === item._id ||
+                        videoIncludedPlayLists.includes(item.title)
+                          ? "playlist-name selected"
+                          : "playlist-name"
+                      }
+                      key={index}
+                      onClick={() => handleSelectPlayList(item._id)}
+                    >
+                      <span>{index + 1}. </span>
+                      <span>{item.title}</span>
+                    </div>
+                  );
+                })
+              : "No playlist avilable"}
+          </div>
+        )}
+
+        {!matchPath("/my-playlist", pathname) && (
+          <button
+            disabled={playList.length > 0 ? false : true}
+            className="add-to-playlist btn btn-small btn-secondary"
+            onClick={handleAddToPlayList}
+          >
+            Add to Playlist
+          </button>
+        )}
       </dialog>
     </div>
   );

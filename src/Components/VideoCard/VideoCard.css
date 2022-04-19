@@ -71,4 +71,15 @@
     width: 15rem;
     height: 10rem;
   }
+  .video-tools {
+    height: 5rem;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .video-thumbnail:hover .video-tools {
+    display: none;
+  }
+  .video-thumbnail:focus .video-tools {
+    display: none;
+  }
 }
