@@ -1,0 +1,18 @@
+.playlist-card {
+  border: 2px solid var(--classic-color);
+  padding: 2rem;
+  width: min-content;
+  min-width: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5rem;
+  flex-wrap: wrap;
+  word-wrap: break-word;
+}
+.playlist-card:hover {
+  border: 2px solid var(--danger-color);
+  background-color: var(--secondary-color);
+  transform: scale(1.05);
+  cursor: pointer;
+}

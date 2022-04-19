@@ -31,8 +31,6 @@ function VideoDetails() {
     })();
   }, [video, setSuggestions]);
 
-  console.log(suggestions);
-
   return (
     <>
       <span

@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
+import PlaylistModal from "../PlayListModal/PlaylistModal";
 import "./VideoDescription.css";
 
 const VideoDescription = ({ video }) => {
+  const [showPlayListModal, setShowPlayListModal] = useState(false);
+
+  function handlePlayList(e) {
+    e.stopPropagation();
+    setShowPlayListModal(true);
+  }
   return (
     <div className="video-description-container">
       <p className="title">{video.title}</p>
@@ -15,7 +22,7 @@ const VideoDescription = ({ video }) => {
           <span class="material-icons">watch_later</span>
           <span>Watch Later</span>
         </div>
-        <div>
+        <div onClick={handlePlayList}>
           <span class="material-icons">playlist_add</span>
           <span>Add to playlist</span>
         </div>
@@ -27,6 +34,12 @@ const VideoDescription = ({ video }) => {
       </p>
       <h4>Description</h4>
       <em>{video.description}</em>
+      {showPlayListModal && (
+        <PlaylistModal
+          setShowPlayListModal={setShowPlayListModal}
+          video={video}
+        />
+      )}
     </div>
   );
 };

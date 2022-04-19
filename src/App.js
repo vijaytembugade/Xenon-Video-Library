@@ -9,6 +9,9 @@ import UserDetails from "./Pages/UserDetails/UserDetails";
 import PrivateRoutes from "./Components/PrivateRoutes/PrivateRoutes";
 import Signup from "./Pages/Signup/Signup";
 import VideoDetails from "./Pages/VideoDetails/VideoDetails";
+import PlayList from "./Pages/PlayList/PlayList";
+import PlayListDetails from "./Pages/PlayListDetails/PlayListDetails";
+import { ScrollToTop } from "./Components/ScrollToTop/ScrollToTop";
 
 function App() {
   return (
@@ -16,20 +19,38 @@ function App() {
       <Header />
       <Notify />
       <div className="main-container">
-        <Routes>
-          <Route path="/videos" element={<VideoListing />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/videos/:id" element={<VideoDetails />} />
-          <Route
-            path="/user-details"
-            element={
-              <PrivateRoutes>
-                <UserDetails />
-              </PrivateRoutes>
-            }
-          />
-        </Routes>
+        <ScrollToTop>
+          <Routes>
+            <Route path="/videos" element={<VideoListing />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/videos/:id" element={<VideoDetails />} />
+            <Route
+              path="/user-details"
+              element={
+                <PrivateRoutes>
+                  <UserDetails />
+                </PrivateRoutes>
+              }
+            />
+            <Route
+              path="/my-playlist"
+              element={
+                <PrivateRoutes>
+                  <PlayList />
+                </PrivateRoutes>
+              }
+            />
+            <Route
+              path="/my-playlist/:playListId"
+              element={
+                <PrivateRoutes>
+                  <PlayListDetails />
+                </PrivateRoutes>
+              }
+            />
+          </Routes>
+        </ScrollToTop>
       </div>
     </>
   );

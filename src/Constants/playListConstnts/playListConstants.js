@@ -1,0 +1,2 @@
+export const PLAYLIST_LOADING = "PLAYLIST_LOADING";
+export const SET_PLAYLIST = "SET_PLAYLIST";

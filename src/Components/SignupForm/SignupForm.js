@@ -14,12 +14,9 @@ const SignupForm = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
+  const from = location.state?.from || "/";
 
-  const {
-    state: { token },
-    dispatch: authDispatch,
-  } = useAuth();
+  const { dispatch: authDispatch } = useAuth();
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -34,8 +31,7 @@ const SignupForm = () => {
           password,
           firstName,
           lastName,
-          confirmPassword,
-          token
+          confirmPassword
         );
 
         if (response !== undefined && response.status === 201) {

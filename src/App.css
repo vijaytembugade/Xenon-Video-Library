@@ -1,5 +1,11 @@
 /* font-family: 'Libre Caslon Text', serif;
 font-family: 'Montserrat', sans-serif; */
 .main-container {
-  margin: 1.5rem 0 2rem 0;
+  margin: 3rem 4rem 2rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .main-container {
+    margin: 1.5rem 1rem 2rem;
+  }
 }
