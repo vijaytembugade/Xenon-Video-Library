@@ -1,15 +1,28 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useAuth } from "../../Contexts";
 import PlaylistModal from "../PlayListModal/PlaylistModal";
 import "./VideoCard.css";
 
 const VideoCard = ({ video }) => {
+  const {
+    state: { isLoggedIn },
+  } = useAuth();
   const navigate = useNavigate();
+  const { pathname } = useLocation();
   const [showPlayListModal, setShowPlayListModal] = useState(false);
 
   function handlePlayList(e) {
     e.stopPropagation();
-    setShowPlayListModal(true);
+    isLoggedIn
+      ? setShowPlayListModal(true)
+      : navigate("/login", { state: { from: pathname } });
+
+    !isLoggedIn &&
+      toast("Please Login!", {
+        icon: "😊",
+      });
   }
   return (
     <div className="videoCard" onClick={() => navigate(`/videos/${video._id}`)}>
