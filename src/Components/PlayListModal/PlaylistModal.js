@@ -83,10 +83,10 @@ const PlaylistModal = ({ setShowPlayListModal, video = "" }) => {
 
       toast.success(`Video added In ${response.data.playlist.title} Playlist`);
 
-      const playListResponce = await getPlayListDetailsService(token);
+      const playListResponse = await getPlayListDetailsService(token);
       dispatch({
         type: SET_PLAYLIST,
-        payload: playListResponce.data.playlists,
+        payload: playListResponse.data.playlists,
       });
     } catch (error) {
       toast.error(error.message);
