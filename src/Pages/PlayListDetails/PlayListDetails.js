@@ -8,6 +8,7 @@ import {
   deletePlaylistService,
   deleteVideoFromPlaylistService,
   getPlayListByIdService,
+  getPlayListDetailsService,
 } from "../../Services";
 import "./PlayListDetails.css";
 
@@ -51,7 +52,20 @@ const PlayListDetails = () => {
         id,
         token
       );
-      setPlaylistDetails(response.data.playlist);
+
+      console.log(response);
+      if (response !== undefined && response.status === 200) {
+        setPlaylistDetails(response.data.playlist);
+        toast.success(`Video Deleted from playlist ${playListDetails.title}`);
+      } else {
+        throw new Error("Something went wrong , video is not deleted");
+      }
+
+      const playListResponce = await getPlayListDetailsService(token);
+      dispatch({
+        type: SET_PLAYLIST,
+        payload: playListResponce.data.playlists,
+      });
     } catch (error) {
       toast.error(error.message);
     }
