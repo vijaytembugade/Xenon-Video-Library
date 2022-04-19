@@ -34,7 +34,7 @@ const PlayListDetails = () => {
       const response = await deletePlaylistService(playListId, token);
       if (response !== undefined && response.status === 200) {
         setPlaylistDetails(response.data.playlist);
-        dispatch({ type: SET_PLAYLIST, payload: response.data.playlist });
+        dispatch({ type: SET_PLAYLIST, payload: response.data.playlists });
         navigate("/my-playlist");
         toast.success(`${playListDetails.title} playlist deleted!`);
       } else {

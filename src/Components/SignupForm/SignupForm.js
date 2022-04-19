@@ -14,7 +14,7 @@ const SignupForm = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
+  const from = location.state?.from || "/";
 
   const { dispatch: authDispatch } = useAuth();
 
