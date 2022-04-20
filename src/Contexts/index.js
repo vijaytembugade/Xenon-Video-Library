@@ -5,3 +5,5 @@ export {
   PlayListProvider,
   usePlayList,
 } from "./playListContext/playListContext";
+
+export { LikedVideoProvider, useLikedVideo } from "./likeContext/likeContext";

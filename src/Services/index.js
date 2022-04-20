@@ -10,3 +10,7 @@ export { getPlayListDetailsService } from "./playListServices/getPlayListDetails
 export { getPlayListByIdService } from "./playListServices/getPlayListByIdService";
 export { deletePlaylistService } from "./playListServices/deletePlayListService";
 export { deleteVideoFromPlaylistService } from "./playListServices/deleteVideoFromPlaylistService";
+
+export { getLikedVideos } from "./likeServices/getLikedVideos";
+export { addToLike } from "./likeServices/addToLike";
+export { removeFromLike } from "./likeServices/removeFromLike";
