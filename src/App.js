@@ -13,6 +13,7 @@ import PlayList from "./Pages/PlayList/PlayList";
 import PlayListDetails from "./Pages/PlayListDetails/PlayListDetails";
 import { ScrollToTop } from "./Components/ScrollToTop/ScrollToTop";
 import Likes from "./Pages/Likes/Likes";
+import WatchLater from "./Pages/WatchLater/WatchLater";
 
 function App() {
   return (
@@ -55,6 +56,14 @@ function App() {
               element={
                 <PrivateRoutes>
                   <Likes />
+                </PrivateRoutes>
+              }
+            />
+            <Route
+              path="/watchlater"
+              element={
+                <PrivateRoutes>
+                  <WatchLater />
                 </PrivateRoutes>
               }
             />
