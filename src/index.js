@@ -4,7 +4,12 @@ import "./index.css";
 import App from "./App";
 import { makeServer } from "./server";
 import { BrowserRouter } from "react-router-dom";
-import { AuthProvider, PlayListProvider, VideoProvider } from "./Contexts";
+import {
+  AuthProvider,
+  LikedVideoProvider,
+  PlayListProvider,
+  VideoProvider,
+} from "./Contexts";
 
 // Call make Server
 makeServer();
@@ -15,7 +20,9 @@ ReactDOM.render(
       <AuthProvider>
         <VideoProvider>
           <PlayListProvider>
-            <App />
+            <LikedVideoProvider>
+              <App />
+            </LikedVideoProvider>
           </PlayListProvider>
         </VideoProvider>
       </AuthProvider>
