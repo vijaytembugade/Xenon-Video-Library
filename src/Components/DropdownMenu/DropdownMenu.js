@@ -8,7 +8,9 @@ function DropdownMenu() {
       <span>
         <Link to="/likes">Liked Videos</Link>
       </span>
-      <span>Watch Later</span>
+      <span>
+        <Link to="/watchlater">Watch Later</Link>
+      </span>
       <span>History</span>
     </div>
   );

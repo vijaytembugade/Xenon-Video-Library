@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useAuth, useLikedVideo } from "../../Contexts";
-import { addToLike, removeFromLike } from "../../Services";
+import { useAuth, useLikedVideo, useWatchLater } from "../../Contexts";
+import {
+  addToLike,
+  addToWatchLaterService,
+  removeFromLike,
+  removeFromWatchLaterService,
+} from "../../Services";
 import PlaylistModal from "../PlayListModal/PlaylistModal";
 import "./VideoCard.css";
 
@@ -12,8 +17,13 @@ const VideoCard = ({ video }) => {
   } = useAuth();
 
   const { likedVideos, setLikedVideos } = useLikedVideo();
+  const { watchLaterVideos, setWatchLaterVideos } = useWatchLater();
+
   const isLikedVideo = likedVideos.find((likedVideo) =>
     likedVideo._id === video._id ? true : false
+  );
+  const isInWatchLater = watchLaterVideos.find((watchLaterVideo) =>
+    watchLaterVideo._id === video._id ? true : false
   );
   const navigate = useNavigate();
   const { pathname } = useLocation();
@@ -58,12 +68,52 @@ const VideoCard = ({ video }) => {
     try {
       if (isLoggedIn) {
         const response = await removeFromLike(video._id, token);
-        console.log(response);
         if (response !== undefined && response.status === 200) {
           setLikedVideos(response.data.likes);
           toast("video removed from likes!", {
             icon: "👎",
           });
+        } else {
+          throw new Error("Something went wrong!");
+        }
+      } else {
+        navigate("/login", { state: { from: pathname } });
+        throw new Error("You are not logged in, Please Login!");
+      }
+    } catch (error) {
+      toast.error(error.message);
+    }
+  }
+
+  async function handleAddToWatchLater(e) {
+    e.stopPropagation();
+    try {
+      if (isLoggedIn) {
+        const response = await addToWatchLaterService(video, token);
+        if (response !== undefined && response.status === 201) {
+          setWatchLaterVideos(response.data.watchlater);
+          toast.success("video added in watch later!");
+        } else {
+          throw new Error("Something went wrong!");
+        }
+      } else {
+        navigate("/login", { state: { from: pathname } });
+        throw new Error("You are not logged in, Please Login!");
+      }
+    } catch (error) {
+      toast.error(error.message);
+    }
+  }
+
+  async function handleRemoveFromWatchLater(e) {
+    e.stopPropagation();
+    try {
+      if (isLoggedIn) {
+        const response = await removeFromWatchLaterService(video._id, token);
+        console.log(response);
+        if (response !== undefined && response.status === 200) {
+          setWatchLaterVideos(response.data.watchlater);
+          toast.success("video removed from watch later!");
         } else {
           throw new Error("Something went wrong!");
         }
@@ -102,8 +152,23 @@ const VideoCard = ({ video }) => {
             </span>
             <span>Like</span>
           </span>
-          <span className="tool">
-            <span className="material-icons md-24">watch_later</span>
+          <span
+            className="tool"
+            onClick={
+              isInWatchLater?._id === video._id
+                ? handleRemoveFromWatchLater
+                : handleAddToWatchLater
+            }
+          >
+            <span
+              className={
+                isInWatchLater && isInWatchLater._id === video._id
+                  ? "material-icons md-24 danger-text"
+                  : "material-icons md-24"
+              }
+            >
+              watch_later
+            </span>
             <span>Watch later</span>
           </span>
           <span className="tool" onClick={handlePlayList}>
