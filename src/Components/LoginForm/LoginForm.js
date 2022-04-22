@@ -20,7 +20,6 @@ const LoginForm = () => {
     authDispatch({ type: LOGIN_REQUEST });
     const response = await loginService(email, password);
 
-    console.log(response);
     if (response !== undefined && response.status === 200) {
       localStorage.setItem("AUTH_TOKEN", response.data.encodedToken);
       localStorage.setItem(

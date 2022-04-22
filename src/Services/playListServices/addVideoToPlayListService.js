@@ -12,7 +12,6 @@ export const addVideoToPlayListService = async (id, video, token) => {
       }
     );
 
-    console.log(response);
     return response;
   } catch (error) {
     console.log(error);

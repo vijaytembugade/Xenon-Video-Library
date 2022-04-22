@@ -58,7 +58,6 @@ const VideoDescription = ({ video }) => {
     try {
       if (isLoggedIn) {
         const response = await removeFromLike(video._id, token);
-        console.log(response);
         if (response !== undefined && response.status === 200) {
           setLikedVideos(response.data.likes);
           toast("video removed from likes!", {
@@ -113,7 +112,6 @@ const VideoDescription = ({ video }) => {
     try {
       if (isLoggedIn) {
         const response = await removeFromWatchLaterService(video._id, token);
-        console.log(response);
         if (response !== undefined && response.status === 200) {
           setWatchLaterVideos(response.data.watchlater);
           toast.success("video removed from watch later!");
