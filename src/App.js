@@ -14,6 +14,7 @@ import PlayListDetails from "./Pages/PlayListDetails/PlayListDetails";
 import { ScrollToTop } from "./Components/ScrollToTop/ScrollToTop";
 import Likes from "./Pages/Likes/Likes";
 import WatchLater from "./Pages/WatchLater/WatchLater";
+import History from "./Pages/History/History";
 
 function App() {
   return (
@@ -64,6 +65,14 @@ function App() {
               element={
                 <PrivateRoutes>
                   <WatchLater />
+                </PrivateRoutes>
+              }
+            />
+            <Route
+              path="/history"
+              element={
+                <PrivateRoutes>
+                  <History />
                 </PrivateRoutes>
               }
             />

@@ -11,3 +11,8 @@ export {
   useWatchLater,
   WatchLaterProvider,
 } from "./watchLaterContext/watchLaterContext";
+
+export {
+  useHistoryVideo,
+  HistoryProvider,
+} from "./historyContext/historyContext";

@@ -18,3 +18,8 @@ export { removeFromLike } from "./likeServices/removeFromLike";
 export { getWatchLaterVideos } from "./watchLaterServices/getWatchLaterVideos";
 export { addToWatchLaterService } from "./watchLaterServices/addToWatchLaterService";
 export { removeFromWatchLaterService } from "./watchLaterServices/removeFromWatchLaterService";
+
+export { addToHistoryService } from "./historyServices/addToHistoryService";
+export { deleteHistoryService } from "./historyServices/deleteHistoryService";
+export { deleteVideoFromHistoryService } from "./historyServices/deleteVideoFromHistoryService";
+export { getAllHistoryService } from "./historyServices/getAllHistoryService";
