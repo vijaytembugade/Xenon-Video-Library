@@ -4,6 +4,12 @@
   gap: 2rem;
   justify-content: flex-start;
 }
+.videos-container-main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
 .filter-container {
   width: 90%;
   margin: 2rem 4rem;
