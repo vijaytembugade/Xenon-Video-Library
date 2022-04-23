@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import toast from "react-hot-toast";
 import ReactPlayer from "react-player/youtube";
 import { useAuth, useHistoryVideo } from "../../Contexts";
-import { addToHistoryService } from "../../Services";
+import {
+  addToHistoryService,
+  deleteVideoFromHistoryService,
+} from "../../Services";
 import "./ReactPlayerFrame.css";
 
 const ReactPlayerFrame = ({ video }) => {
@@ -10,7 +13,17 @@ const ReactPlayerFrame = ({ video }) => {
     state: { token, isLoggedIn },
   } = useAuth();
 
-  const { setHistoryVideos } = useHistoryVideo();
+  const { historyVideos, setHistoryVideos } = useHistoryVideo();
+
+  async function maintainHistory() {
+    try {
+      const response = await deleteVideoFromHistoryService(video._id, token);
+      setHistoryVideos(response.data.history);
+      return true;
+    } catch (error) {
+      toast.error(error.message);
+    }
+  }
 
   const handleAddToHistory = async () => {
     try {
@@ -24,6 +37,7 @@ const ReactPlayerFrame = ({ video }) => {
       toast.error(error.message);
     }
   };
+
   return (
     <div className="player">
       <ReactPlayer
@@ -33,7 +47,7 @@ const ReactPlayerFrame = ({ video }) => {
         controls={true}
         url={`https://www.youtube.com/watch?v=${video._id}`}
         onStart={() => {
-          isLoggedIn && handleAddToHistory();
+          isLoggedIn && maintainHistory() && handleAddToHistory();
         }}
       />
     </div>

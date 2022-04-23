@@ -42,7 +42,7 @@ const History = () => {
         </div>
 
         <div className="videos-container">
-          {historyVideos?.map((video) => {
+          {historyVideos.reverse()?.map((video) => {
             return <VideoCard video={video} key={video._id} />;
           })}
         </div>
