@@ -11,7 +11,7 @@
   list-style-type: none;
 }
 .sitelogo > img {
-  width: 15rem;
+  width: 12rem;
 }
 .social-media-icons {
   display: flex;
@@ -21,4 +21,17 @@
 }
 .social-media-icons img {
   width: 2rem;
+}
+@media only screen and (max-width: 768px) {
+  .site-map {
+    display: none;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .footer-container {
+    flex-direction: column;
+  }
+  .sitelogo > img {
+    width: 100%;
+  }
 }
