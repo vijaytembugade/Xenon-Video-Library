@@ -1,0 +1,48 @@
+.main-page {
+  position: relative;
+}
+.flex-container-verticle {
+  gap: 1rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.center-text {
+  text-align: center;
+  padding: 2rem 0 0rem;
+}
+.partners {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.partners > img {
+  width: 20rem;
+  height: 12rem;
+}
+.category-container {
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+.category-container > div {
+  padding: 1rem;
+  border: 2px solid var(--danger-color);
+  border-radius: 1rem;
+  cursor: pointer;
+  font-weight: 700;
+}
+.category-container > div:hover {
+  transform: scale(1.1);
+  background-color: var(--secondary-color);
+}
+@media only screen and (max-width: 480px) {
+  .flex-container-verticle {
+    margin-top: 4rem;
+  }
+}

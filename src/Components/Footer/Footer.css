@@ -1,0 +1,24 @@
+.footer-container {
+  display: flex;
+  background-color: var(--secondary-color);
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  font-family: "Montserrat", sans-serif;
+  padding: 1rem;
+}
+.site-map li {
+  list-style-type: none;
+}
+.sitelogo > img {
+  width: 15rem;
+}
+.social-media-icons {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  padding: 1rem;
+}
+.social-media-icons img {
+  width: 2rem;
+}
