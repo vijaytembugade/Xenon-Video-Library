@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { matchPath, Route, Routes, useLocation } from "react-router-dom";
 import "./App.css";
 import Header from "./Components/Header/Header";
 import Login from "./Pages/Login/Login";
@@ -15,8 +15,11 @@ import { ScrollToTop } from "./Components/ScrollToTop/ScrollToTop";
 import Likes from "./Pages/Likes/Likes";
 import WatchLater from "./Pages/WatchLater/WatchLater";
 import History from "./Pages/History/History";
+import Homepage from "./Pages/Homepage/Homepage";
+import Footer from "./Components/Footer/Footer";
 
 function App() {
+  const { pathname } = useLocation();
   return (
     <>
       <Header />
@@ -24,6 +27,7 @@ function App() {
       <div className="main-container">
         <ScrollToTop>
           <Routes>
+            <Route path="/" element={<Homepage />} />
             <Route path="/videos" element={<VideoListing />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
@@ -79,6 +83,9 @@ function App() {
           </Routes>
         </ScrollToTop>
       </div>
+      {(matchPath("/", pathname) || matchPath("/videos", pathname)) && (
+        <Footer />
+      )}
     </>
   );
 }
