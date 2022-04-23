@@ -31,7 +31,10 @@ const PlayList = () => {
         {playList?.map((list) => {
           return (
             <Link to={`/my-playlist/${list._id}`} key={list._id}>
-              <PlayListShowCard title={list.title} />
+              <PlayListShowCard
+                title={list.title}
+                image={list?.videos[0]?.thumbnail}
+              />
             </Link>
           );
         })}

@@ -11,7 +11,9 @@ function DropdownMenu() {
       <span>
         <Link to="/watchlater">Watch Later</Link>
       </span>
-      <span>History</span>
+      <span>
+        <Link to="/history">History</Link>
+      </span>
     </div>
   );
 }

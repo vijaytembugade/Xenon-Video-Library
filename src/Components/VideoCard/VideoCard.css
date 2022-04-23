@@ -2,6 +2,7 @@
   height: 16rem;
   width: 20rem;
   cursor: pointer;
+  position: relative;
 }
 .video-thumbnail {
   width: 20rem;
@@ -58,6 +59,18 @@
 
 .video-tools .tool:hover {
   color: var(--primary-color);
+}
+
+.delete-histroy-video-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0.5rem;
+  display: none;
+}
+
+.videoCard:hover .delete-histroy-video-btn {
+  display: block;
 }
 @media only screen and (max-width: 768px) {
   .video-title {

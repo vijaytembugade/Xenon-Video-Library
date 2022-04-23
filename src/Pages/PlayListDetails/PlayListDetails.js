@@ -53,7 +53,6 @@ const PlayListDetails = () => {
         token
       );
 
-      console.log(response);
       if (response !== undefined && response.status === 200) {
         setPlaylistDetails(response.data.playlist);
         toast.success(`Video Deleted from playlist ${playListDetails.title}`);

@@ -5,6 +5,7 @@ import { useAuth, usePlayList } from "../../Contexts";
 import {
   addVideoToPlayListService,
   createPlayListService,
+  deleteVideoFromPlaylistService,
   getPlayListDetailsService,
 } from "../../Services";
 import toast from "react-hot-toast";
@@ -13,7 +14,10 @@ import { matchPath, useLocation } from "react-router-dom";
 
 const PlaylistModal = ({ setShowPlayListModal, video = "" }) => {
   const [inputPlaylist, setInputPlaylist] = useState("");
-  const [selectedPlaylistId, setselectedPlaylistId] = useState("");
+  const [selectedPlaylist, setselectedPlaylist] = useState({
+    isSelected: false,
+    id: null,
+  });
 
   const { pathname } = useLocation();
 
@@ -34,6 +38,15 @@ const PlaylistModal = ({ setShowPlayListModal, video = "" }) => {
   }, []);
 
   useOnClickOutside(modalRef, () => setShowPlayListModal(false));
+
+  const videoIncludedPlayLists = playList.reduce((acc, curr) => {
+    const found = curr.videos.find((item) => item._id === video._id);
+    if (found !== undefined) {
+      return [...acc, curr._id];
+    } else {
+      return acc;
+    }
+  }, []);
 
   async function handleCreatePlayList() {
     try {
@@ -59,20 +72,25 @@ const PlaylistModal = ({ setShowPlayListModal, video = "" }) => {
   }
 
   function handleSelectPlayList(id) {
-    setselectedPlaylistId(id);
+    if (videoIncludedPlayLists.includes(id)) {
+      handleRemoveFromPlayList(id);
+      setselectedPlaylist({ isSelected: false, id: null });
+    } else {
+      setselectedPlaylist({ isSelected: true, id: id });
+    }
   }
 
   async function handleAddToPlayList() {
     try {
       if (
-        selectedPlaylistId === "" ||
-        selectedPlaylistId === undefined ||
-        !selectedPlaylistId
+        selectedPlaylist.id === "" ||
+        selectedPlaylist.id === null ||
+        !selectedPlaylist.isSelected
       ) {
         throw new Error("Inavlid Selection of Playlist");
       }
       const response = await addVideoToPlayListService(
-        selectedPlaylistId,
+        selectedPlaylist.id,
         video,
         token
       );
@@ -93,14 +111,29 @@ const PlaylistModal = ({ setShowPlayListModal, video = "" }) => {
     }
   }
 
-  const videoIncludedPlayLists = playList.reduce((acc, curr) => {
-    const found = curr.videos.find((item) => item._id === video._id);
-    if (found !== undefined) {
-      return [...acc, curr.title];
-    } else {
-      return acc;
+  async function handleRemoveFromPlayList(id) {
+    try {
+      const response = await deleteVideoFromPlaylistService(
+        id,
+        video._id,
+        token
+      );
+      if (response !== undefined && response.status === 200) {
+        setselectedPlaylist({ isSelected: false, id: null });
+        toast.success("Video Removed From playlist");
+      } else {
+        throw new Error("Something went wrong , video is not deleted");
+      }
+
+      const playListResponce = await getPlayListDetailsService(token);
+      dispatch({
+        type: SET_PLAYLIST,
+        payload: playListResponce.data.playlists,
+      });
+    } catch (error) {
+      toast.error(error.message);
     }
-  }, []);
+  }
 
   return (
     <div className="playlist-modal">
@@ -134,8 +167,8 @@ const PlaylistModal = ({ setShowPlayListModal, video = "" }) => {
                   return (
                     <div
                       className={
-                        selectedPlaylistId === item._id ||
-                        videoIncludedPlayLists.includes(item.title)
+                        selectedPlaylist.id === item._id ||
+                        videoIncludedPlayLists.includes(item._id)
                           ? "playlist-name selected"
                           : "playlist-name"
                       }

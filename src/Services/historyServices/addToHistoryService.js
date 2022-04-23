@@ -1,14 +1,16 @@
 import axios from "axios";
 
-export const addVideoToPlayListService = async (id, video, token) => {
+export const addToHistoryService = async (video, token) => {
   try {
     const response = await axios.post(
-      `/api/user/playlists/${id}`,
+      "/api/user/history",
       {
         video,
       },
       {
-        headers: { authorization: token },
+        headers: {
+          authorization: token,
+        },
       }
     );
 
