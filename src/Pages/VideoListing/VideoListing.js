@@ -20,7 +20,7 @@ export const VideoListing = () => {
         <div>{showFilter && <Filters />}</div>
       </div>
       <h2 className="all-videos-title">All Videos ({videos.length})</h2>
-      <div className="videos-container">
+      <div className="videos-container-main">
         {videos.map((video) => {
           return <VideoCard video={video} key={video._id} />;
         })}
