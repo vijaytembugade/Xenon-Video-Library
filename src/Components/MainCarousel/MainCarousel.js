@@ -22,21 +22,21 @@ const MainCarousel = () => {
           <img
             className="carousel-img"
             src="/assets/carousel/Jaun-Elia.jpg"
-            alt=""
+            alt="jaun elia"
           />
         </div>
         <div>
           <img
             className="carousel-img"
             src="/assets/carousel/faiz-ahmed.jpg"
-            alt=""
+            alt="faiz ahamed faiz"
           />
         </div>
         <div>
           <img
             className="carousel-img"
             src="/assets/carousel/piyush-mishra.jpg"
-            alt=""
+            alt="piyush mishra"
           />
         </div>
 
@@ -44,14 +44,14 @@ const MainCarousel = () => {
           <img
             className="carousel-img"
             src="/assets/carousel/Rahat-indori.jpg"
-            alt=""
+            alt="rahat indori"
           />
         </div>
         <div>
           <img
             className="carousel-img"
             src="/assets/carousel/wasim-barewali.jpg"
-            alt=""
+            alt="wasim barelvi"
           />
         </div>
       </Slider>

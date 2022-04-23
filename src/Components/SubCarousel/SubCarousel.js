@@ -60,9 +60,9 @@ const SubCarousel = () => {
         showArrows={true}
         padding="20px"
       >
-        {writersData.map((photo) => {
+        {writersData.map((photo, index) => {
           return (
-            <div className="sub-carousel">
+            <div className="sub-carousel" key={index}>
               <img
                 className="subcarousel-img"
                 src={photo.image}
