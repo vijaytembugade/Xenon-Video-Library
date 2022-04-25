@@ -37,11 +37,11 @@ export const VideoListing = () => {
       <div className="filter-container">
         <div
           className="btn btn-small btn-primary-outline"
-          onClick={() => setShowFilter(!showFilter)}
+          onClick={() => setShowFilter((prevState) => !prevState)}
         >
           <span class="material-icons">apps</span>FILTERS
         </div>
-        <div>{showFilter && <Filters />}</div>
+        <div>{showFilter && <Filters setShowFilter={setShowFilter} />}</div>
       </div>
       <h2 className="all-videos-title">All Videos ({videos.length})</h2>
       <div className="videos-container-main">

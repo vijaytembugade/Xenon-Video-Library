@@ -1,17 +1,25 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import "./Filters.css";
 import Select from "react-select";
 import { useFilter } from "../../Contexts";
 import { BY_AUTHOR, BY_CATEGORY, BY_CREATOR } from "../../Constants";
+import useLockBodyScroll from "../../Hooks/useLockBodyScroll";
+import useOnClickOutside from "../../Hooks/useOnClickOutside";
 
-const Filters = () => {
+const Filters = ({ setShowFilter }) => {
   const { state, dispatch, allAuthors, allCategories, allCreator } =
     useFilter();
 
-  console.log(state);
+  const filterbarRef = useRef();
 
-  const [selectedAuthors, setSelectedAuthor] = useState([]);
-  const [selectedCreator, setSelectedCreator] = useState([]);
+  useOnClickOutside(filterbarRef, () => setShowFilter(false));
+
+  const [selectedAuthors, setSelectedAuthor] = useState(
+    state.byAuthor.map((value) => ({ value: value, label: value }))
+  );
+  const [selectedCreator, setSelectedCreator] = useState(
+    state.byCreator.map((value) => ({ value: value, label: value }))
+  );
 
   const authorOptions = allAuthors.map((author) => ({
     value: author,
@@ -55,7 +63,8 @@ const Filters = () => {
     }),
   };
   return (
-    <div className="filter">
+    <div className="filter" ref={filterbarRef}>
+      <span className="title resposnive-filter-title">Filters</span>
       <div className="filter-subdiv">
         <span className="by-author">By Author</span>
         <div>
@@ -70,7 +79,7 @@ const Filters = () => {
         </div>
       </div>
 
-      <div>
+      <div className="filter-subdiv">
         <span className="by-author">By Creator</span>
         <div>
           <Select
@@ -83,7 +92,7 @@ const Filters = () => {
           />
         </div>
       </div>
-      <div>
+      <div className="filter-subdiv">
         <span className="by-author">By Category</span>
         <div className="category-filter-container">
           {allCategories.map((category) => {
@@ -102,6 +111,13 @@ const Filters = () => {
           })}
         </div>
       </div>
+
+      <button
+        className="btn btn-primary-outline btn-filter-responsive"
+        onClick={() => setShowFilter(false)}
+      >
+        Apply and Close
+      </button>
     </div>
   );
 };

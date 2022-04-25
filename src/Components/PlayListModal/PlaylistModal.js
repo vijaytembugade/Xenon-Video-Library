@@ -11,6 +11,7 @@ import {
 import toast from "react-hot-toast";
 import { SET_PLAYLIST } from "../../Constants";
 import { matchPath, useLocation } from "react-router-dom";
+import useLockBodyScroll from "../../Hooks/useLockBodyScroll";
 
 const PlaylistModal = ({ setShowPlayListModal, video = "" }) => {
   const [inputPlaylist, setInputPlaylist] = useState("");
@@ -38,6 +39,7 @@ const PlaylistModal = ({ setShowPlayListModal, video = "" }) => {
   }, []);
 
   useOnClickOutside(modalRef, () => setShowPlayListModal(false));
+  useLockBodyScroll();
 
   const videoIncludedPlayLists = useMemo(
     () =>
