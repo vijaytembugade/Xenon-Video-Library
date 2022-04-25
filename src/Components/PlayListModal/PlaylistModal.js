@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, useMemo } from "react";
 import "./PlayListModal.css";
 import useOnClickOutside from "../../Hooks/useOnClickOutside";
 import { useAuth, usePlayList } from "../../Contexts";
@@ -39,14 +39,18 @@ const PlaylistModal = ({ setShowPlayListModal, video = "" }) => {
 
   useOnClickOutside(modalRef, () => setShowPlayListModal(false));
 
-  const videoIncludedPlayLists = playList.reduce((acc, curr) => {
-    const found = curr.videos.find((item) => item._id === video._id);
-    if (found !== undefined) {
-      return [...acc, curr._id];
-    } else {
-      return acc;
-    }
-  }, []);
+  const videoIncludedPlayLists = useMemo(
+    () =>
+      playList.reduce((acc, curr) => {
+        const found = curr.videos.find((item) => item._id === video._id);
+        if (found !== undefined) {
+          return [...acc, curr._id];
+        } else {
+          return acc;
+        }
+      }, []),
+    [playList]
+  );
 
   async function handleCreatePlayList() {
     try {

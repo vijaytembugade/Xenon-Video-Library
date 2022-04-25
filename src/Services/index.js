@@ -23,3 +23,7 @@ export { addToHistoryService } from "./historyServices/addToHistoryService";
 export { deleteHistoryService } from "./historyServices/deleteHistoryService";
 export { deleteVideoFromHistoryService } from "./historyServices/deleteVideoFromHistoryService";
 export { getAllHistoryService } from "./historyServices/getAllHistoryService";
+
+export { getAllAuthors } from "./filterServices/getAllAuthors";
+export { getAllCategory } from "./filterServices/getAllCategory";
+export { getAllCreator } from "./filterServices/getAllCreator";

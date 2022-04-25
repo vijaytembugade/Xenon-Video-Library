@@ -7,3 +7,9 @@
   font-weight: 700;
   padding: 1rem;
 }
+.category-filter-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}

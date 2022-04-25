@@ -113,7 +113,7 @@ export const videos = [
     thumbnail: "https://i3.ytimg.com/vi/HkZKM5GmX48/hqdefault.jpg",
     title: "Piyush Mishra | Wo kaam Bhala kya kaam ",
     description: "",
-    creator: "Wah Wah",
+    creator: "Waah Waah",
     author: "Piyush Mishra",
     category: "Mushaira",
   },
