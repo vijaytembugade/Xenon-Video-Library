@@ -23,7 +23,7 @@ const Footer = () => {
       <div className="flex-container-verticle">
         <div>
           <strong>
-            Made by <span className="danger-text">Vijay Tembugade</span>
+            Made with 💖 by <span className="danger-text">Vijay Tembugade</span>
           </strong>
         </div>
         <div className="social-media-icons">

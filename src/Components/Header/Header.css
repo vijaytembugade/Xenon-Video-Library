@@ -93,6 +93,7 @@ nav {
   #hamburger {
     display: block;
     padding: 0.5rem;
+    cursor: pointer;
   }
   .middle-nav-content {
     display: none;
