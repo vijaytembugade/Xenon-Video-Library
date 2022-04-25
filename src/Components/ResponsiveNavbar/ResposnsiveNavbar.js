@@ -15,21 +15,39 @@ function ResposnsiveNavbar({ setShowResponsiveNavbar }) {
 
   return (
     <div className="responsive-navbar-container" ref={responsiveNavbarRef}>
-      <div className="title responsive-nav-link-menu">Menu</div>
+      <div className="title responsive-nav-link-menu">
+        <span>Menu</span>
+        <span
+          class="material-icons danger-text"
+          onClick={() => setShowResponsiveNavbar(false)}
+        >
+          cancel
+        </span>
+      </div>
+      <NavLink
+        to="/"
+        className="responsive-nav-link"
+        onClick={() => setShowResponsiveNavbar(false)}
+      >
+        <span class="material-icons">home</span>
+        Home
+      </NavLink>
+      <NavLink
+        to="/videos"
+        className="responsive-nav-link"
+        onClick={() => setShowResponsiveNavbar(false)}
+      >
+        <span class="material-icons">smart_display</span>
+        Videos
+      </NavLink>
       {isLoggedIn && (
         <div>
-          <NavLink
-            to="/videos"
-            className="responsive-nav-link"
-            onClick={() => setShowResponsiveNavbar(false)}
-          >
-            Videos
-          </NavLink>
           <NavLink
             to="/my-playlist"
             className="responsive-nav-link"
             onClick={() => setShowResponsiveNavbar(false)}
           >
+            <span class="material-icons">playlist_add</span>
             Playlists
           </NavLink>
           <NavLink
@@ -37,13 +55,15 @@ function ResposnsiveNavbar({ setShowResponsiveNavbar }) {
             className="responsive-nav-link"
             onClick={() => setShowResponsiveNavbar(false)}
           >
-            Likes Videos
+            <span class="material-icons">thumb_up</span>
+            Liked Videos
           </NavLink>
           <NavLink
             to="/watchlater"
             className="responsive-nav-link"
             onClick={() => setShowResponsiveNavbar(false)}
           >
+            <span class="material-icons">watch_later</span>
             Watch Later
           </NavLink>
           <NavLink
@@ -51,6 +71,7 @@ function ResposnsiveNavbar({ setShowResponsiveNavbar }) {
             className="responsive-nav-link"
             onClick={() => setShowResponsiveNavbar(false)}
           >
+            <span class="material-icons">history</span>
             History
           </NavLink>
           <NavLink
@@ -58,6 +79,7 @@ function ResposnsiveNavbar({ setShowResponsiveNavbar }) {
             className="responsive-nav-link"
             onClick={() => setShowResponsiveNavbar(false)}
           >
+            <span class="material-icons">account_circle</span>
             User Details
           </NavLink>
         </div>
@@ -66,17 +88,11 @@ function ResposnsiveNavbar({ setShowResponsiveNavbar }) {
       {!isLoggedIn && (
         <div>
           <NavLink
-            to="/videos"
-            className="responsive-nav-link"
-            onClick={() => setShowResponsiveNavbar(false)}
-          >
-            Videos
-          </NavLink>
-          <NavLink
             to="/login"
             className="responsive-nav-link"
             onClick={() => setShowResponsiveNavbar(false)}
           >
+            <span class="material-icons">login</span>
             Login
           </NavLink>
           <NavLink
@@ -84,6 +100,7 @@ function ResposnsiveNavbar({ setShowResponsiveNavbar }) {
             className="responsive-nav-link"
             onClick={() => setShowResponsiveNavbar(false)}
           >
+            <span class="material-icons">person_add</span>
             Signup
           </NavLink>
         </div>
