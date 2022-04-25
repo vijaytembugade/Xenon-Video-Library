@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { NavLink } from "react-router-dom";
 import useOnClickOutside from "../../Hooks/useOnClickOutside";
+import useLockBodyScroll from "../../Hooks/useLockBodyScroll";
 import "./ResposnsiveNavbar.css";
 import { useAuth } from "../../Contexts";
 
@@ -12,6 +13,7 @@ function ResposnsiveNavbar({ setShowResponsiveNavbar }) {
   const responsiveNavbarRef = useRef();
 
   useOnClickOutside(responsiveNavbarRef, () => setShowResponsiveNavbar(false));
+  useLockBodyScroll();
 
   return (
     <div className="responsive-navbar-container" ref={responsiveNavbarRef}>
