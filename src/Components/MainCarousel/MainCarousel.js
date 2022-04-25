@@ -10,7 +10,6 @@ const MainCarousel = () => {
     { breakPoint: 760, cardsToShow: 1 },
     { breakPoint: 480, cardsToShow: 1 },
     { breakPoint: 320, cardsToShow: 1 },
-    { breakPoint: 120, cardsToShow: 1 },
   ];
   return (
     <>
@@ -18,7 +17,6 @@ const MainCarousel = () => {
         responsive={responsive}
         pauseOnMouseOver={true}
         autoSlide={3000}
-        infinite={true}
         showArrows={false}
       >
         <div>
