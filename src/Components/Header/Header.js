@@ -5,6 +5,7 @@ import { useAuth } from "../../Contexts";
 
 import "./Header.css";
 import useOnClickOutside from "../../Hooks/useOnClickOutside";
+import ResposnsiveNavbar from "../ResponsiveNavbar/ResposnsiveNavbar";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -13,6 +14,7 @@ const Header = () => {
   } = useAuth();
 
   const [showDropDownMenu, setShowDropDownMenu] = useState(false);
+  const [responsiveNavbar, setShowResponsiveNavbar] = useState(false);
 
   const ref = useRef();
 
@@ -74,10 +76,14 @@ const Header = () => {
       )}
 
       <div id="hamburger">
-        <span>
+        <span onClick={() => setShowResponsiveNavbar(true)}>
           <span className="material-icons md-36">menu</span>
         </span>
       </div>
+
+      {responsiveNavbar && (
+        <ResposnsiveNavbar setShowResponsiveNavbar={setShowResponsiveNavbar} />
+      )}
     </nav>
   );
 };

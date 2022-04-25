@@ -8,6 +8,9 @@ const MainCarousel = () => {
     { breakPoint: 2400, cardsToShow: 1 },
     { breakPoint: 1280, cardsToShow: 1 },
     { breakPoint: 760, cardsToShow: 1 },
+    { breakPoint: 480, cardsToShow: 1 },
+    { breakPoint: 320, cardsToShow: 1 },
+    { breakPoint: 120, cardsToShow: 1 },
   ];
   return (
     <>
