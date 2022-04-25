@@ -17,6 +17,7 @@ const MainCarousel = () => {
         responsive={responsive}
         pauseOnMouseOver={true}
         autoSlide={3000}
+        infinite={true}
         showArrows={false}
       >
         <div>
