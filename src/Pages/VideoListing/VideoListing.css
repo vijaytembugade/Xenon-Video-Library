@@ -9,6 +9,7 @@
   flex-wrap: wrap;
   gap: 2rem;
   justify-content: center;
+  min-height: 100vh;
 }
 .filter-container {
   width: 90%;
@@ -20,7 +21,9 @@
 
 @media only screen and (max-width: 768px) {
   .filter-container {
-    display: none;
+    margin: 1rem 1rem;
+    padding: 1rem 0rem;
+    border-bottom: none;
   }
   .videos-container {
     justify-content: center;

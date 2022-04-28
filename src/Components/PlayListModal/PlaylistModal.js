@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, useMemo } from "react";
 import "./PlayListModal.css";
 import useOnClickOutside from "../../Hooks/useOnClickOutside";
 import { useAuth, usePlayList } from "../../Contexts";
@@ -11,6 +11,7 @@ import {
 import toast from "react-hot-toast";
 import { SET_PLAYLIST } from "../../Constants";
 import { matchPath, useLocation } from "react-router-dom";
+import useLockBodyScroll from "../../Hooks/useLockBodyScroll";
 
 const PlaylistModal = ({ setShowPlayListModal, video = "" }) => {
   const [inputPlaylist, setInputPlaylist] = useState("");
@@ -38,15 +39,20 @@ const PlaylistModal = ({ setShowPlayListModal, video = "" }) => {
   }, []);
 
   useOnClickOutside(modalRef, () => setShowPlayListModal(false));
+  useLockBodyScroll();
 
-  const videoIncludedPlayLists = playList.reduce((acc, curr) => {
-    const found = curr.videos.find((item) => item._id === video._id);
-    if (found !== undefined) {
-      return [...acc, curr._id];
-    } else {
-      return acc;
-    }
-  }, []);
+  const videoIncludedPlayLists = useMemo(
+    () =>
+      playList.reduce((acc, curr) => {
+        const found = curr.videos.find((item) => item._id === video._id);
+        if (found !== undefined) {
+          return [...acc, curr._id];
+        } else {
+          return acc;
+        }
+      }, []),
+    [playList]
+  );
 
   async function handleCreatePlayList() {
     try {

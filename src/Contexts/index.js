@@ -16,3 +16,5 @@ export {
   useHistoryVideo,
   HistoryProvider,
 } from "./historyContext/historyContext";
+
+export { FilterProvider, useFilter } from "./filterContext/filterContext";
