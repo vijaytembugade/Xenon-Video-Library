@@ -28,13 +28,13 @@ const Footer = () => {
         </div>
         <div className="social-media-icons">
           <a href="https://github.com/vijaytembugade/" target="_blank">
-            <img src="/assets/social/github.svg" alt="" />
+            <img src="/assets/social/github.svg" alt="github" />
           </a>
           <a href="https://twitter.com/vijaytembugade" target="_blank">
-            <img src="/assets/social/twitter.svg" alt="" />
+            <img src="/assets/social/twitter.svg" alt="twitter" />
           </a>
           <a href="https://www.linkedin.com/in/vijaytembugade/" target="_blank">
-            <img src="/assets/social/linkedin.svg" alt="" />
+            <img src="/assets/social/linkedin.svg" alt="linkedin" />
           </a>
         </div>
       </div>
