@@ -45,7 +45,6 @@ const FilterProvider = ({ children }) => {
 
   const [state, dispatch] = useReducer(filterReducer, initialState);
 
-  console.log(state);
   const allAuthors = useMemo(() => getAllAuthors(videos), [videos]);
   const allCreator = useMemo(() => getAllCreator(videos), [videos]);
 
