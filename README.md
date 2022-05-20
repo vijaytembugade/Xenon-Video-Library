@@ -1,6 +1,6 @@
 # Aayat - A video Library web App
 
-Aayat is a video library project for those who loves to listen and watch Mushiras, Poetry, Soft, Quwalli and soulful music. It has specific content for specific user , where user can enjoy his day with Aaayat.
+Aayat is a video library project for those who loves to listen and watch Mushiras, Poetry, Soft, Qawwali and soulful music. It has specific content for specific user, where user can enjoy his day listening and viewing it. 
 
 ## Live preview Link
 
