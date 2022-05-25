@@ -34,7 +34,6 @@
   padding: 1rem;
   border: 2px solid var(--danger-color);
   border-radius: 1rem;
-  cursor: pointer;
   font-weight: 700;
 }
 .category-container > div:hover {
