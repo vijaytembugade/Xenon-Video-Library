@@ -45,9 +45,12 @@ export const VideoListing = () => {
         )}
         <div>{showFilter && <Filters setShowFilter={setShowFilter} />}</div>
       </div>
-      <h2 className="all-videos-title">All Videos ({videos.length})</h2>
+      <h2 className="all-videos-title">All Videos ({videos?.length})</h2>
+      <h4 className="all-videos-title gray-text">
+        {videos?.length === 0 && "No videos available for this filter!"}
+      </h4>
       <div className="videos-container-main">
-        {videos.map((video) => {
+        {videos?.map((video) => {
           return <VideoCard video={video} key={video._id} />;
         })}
       </div>

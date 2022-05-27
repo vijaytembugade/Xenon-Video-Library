@@ -1,10 +1,14 @@
 import React from "react";
 import "./Homepage.css";
 import MainCarousel from "../../Components/MainCarousel/MainCarousel";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SubCarousel from "../../Components/SubCarousel/SubCarousel";
+import { useFilter } from "../../Contexts";
+import { BY_CATEGORY } from "../../Constants";
 
 const Homepage = () => {
+  const { dispatch, allCategories } = useFilter();
+  const navigate = useNavigate();
   return (
     <div>
       <div className="main-page">
@@ -23,7 +27,7 @@ const Homepage = () => {
       </div>
 
       <div>
-        <h1 className="center-text">Some writters and poets</h1>
+        <h1 className="center-text">Some writers and poets</h1>
         <SubCarousel />
       </div>
 
@@ -52,12 +56,22 @@ const Homepage = () => {
       <div>
         <h1 className="center-text">Categories</h1>
         <div className="category-container">
-          <div>Sufi</div>
-          <div>Qawwali</div>
-          <div>Poetry</div>
-          <div>Mushaira</div>
-          <div>Story Telling</div>
-          <div>Gazal</div>
+          {allCategories.map((category) => {
+            return (
+              <div
+                key={category._id}
+                onClick={() => {
+                  dispatch({
+                    type: BY_CATEGORY,
+                    payload: category.categoryName,
+                  });
+                  navigate("videos");
+                }}
+              >
+                <span>{category.categoryName}</span>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>

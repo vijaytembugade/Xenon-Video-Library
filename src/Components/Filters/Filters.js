@@ -1,8 +1,13 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./Filters.css";
 import Select from "react-select";
 import { useFilter } from "../../Contexts";
-import { BY_AUTHOR, BY_CATEGORY, BY_CREATOR } from "../../Constants";
+import {
+  BY_AUTHOR,
+  BY_CATEGORY,
+  BY_CREATOR,
+  CLEAR_FILTER,
+} from "../../Constants";
 import useLockBodyScroll from "../../Hooks/useLockBodyScroll";
 import useOnClickOutside from "../../Hooks/useOnClickOutside";
 
@@ -12,14 +17,24 @@ const Filters = ({ setShowFilter }) => {
 
   const filterbarRef = useRef();
 
+  console.log(state);
+
   useOnClickOutside(filterbarRef, () => setShowFilter(false));
 
-  const [selectedAuthors, setSelectedAuthor] = useState(
-    state.byAuthor.map((value) => ({ value: value, label: value }))
-  );
-  const [selectedCreator, setSelectedCreator] = useState(
-    state.byCreator.map((value) => ({ value: value, label: value }))
-  );
+  const [selectedAuthors, setSelectedAuthor] = useState([]);
+  const [selectedCreator, setSelectedCreator] = useState([]);
+
+  useEffect(() => {
+    setSelectedAuthor(
+      state.byAuthor.map((value) => ({ value: value, label: value }))
+    );
+  }, [state.byAuthor]);
+
+  useEffect(() => {
+    setSelectedCreator(
+      state.byCreator.map((value) => ({ value: value, label: value }))
+    );
+  }, [state.byCreator]);
 
   const authorOptions = allAuthors.map((author) => ({
     value: author,
@@ -70,13 +85,14 @@ const Filters = ({ setShowFilter }) => {
       >
         <span class="material-icons">apps</span>FILTERS
       </div>
+
       <div className="filter" ref={filterbarRef}>
         <span className="title resposnive-filter-title">Filters</span>
         <div className="filter-subdiv">
           <span className="by-author">By Author</span>
           <div>
             <Select
-              defaultValue={selectedAuthors}
+              value={selectedAuthors}
               onChange={handleAuthorChange}
               placeholder="Select Authors"
               styles={customStyles}
@@ -117,6 +133,15 @@ const Filters = ({ setShowFilter }) => {
               );
             })}
           </div>
+        </div>
+
+        <div
+          className="btn btn-small btn-primary-outline clear-filter-btn"
+          onClick={() => {
+            dispatch({ type: CLEAR_FILTER });
+          }}
+        >
+          <span class="material-icons">clear_all</span>Clear
         </div>
 
         <button

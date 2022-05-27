@@ -39,7 +39,7 @@ const LoginForm = () => {
     }
   }
   function handleGuestLogin() {
-    setEmail("adarshbalika@gmail.com");
+    setEmail("vijaytembugade21@gmail.com");
     setPassword("Vijay@123");
   }
   return (

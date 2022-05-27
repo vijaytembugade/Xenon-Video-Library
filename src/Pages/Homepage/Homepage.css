@@ -35,6 +35,7 @@
   border: 2px solid var(--danger-color);
   border-radius: 1rem;
   font-weight: 700;
+  cursor: pointer;
 }
 .category-container > div:hover {
   transform: scale(1.1);
