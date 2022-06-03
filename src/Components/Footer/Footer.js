@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Footer.css";
 
 const Footer = () => {
@@ -11,11 +12,21 @@ const Footer = () => {
         <div className="site-map">
           <h3>Sitemap</h3>
           <ul>
-            <li>Home</li>
-            <li>Videos</li>
-            <li>Liked Videos</li>
-            <li>Watched Videos</li>
-            <li>History</li>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/videos">Videos</Link>
+            </li>
+            <li>
+              <Link to="/likes">Liked Videos</Link>
+            </li>
+            <li>
+              <Link to="/history">Watched Videos</Link>
+            </li>
+            <li>
+              <Link to="/my-playlis">Playlist</Link>{" "}
+            </li>
           </ul>
         </div>
       </div>

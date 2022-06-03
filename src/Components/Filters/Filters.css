@@ -17,6 +17,10 @@
 .resposnive-filter-title {
   display: none;
 }
+.clear-filter-btn {
+  margin-right: 1rem;
+  height: 2rem;
+}
 @media only screen and (max-width: 768px) {
   .filter {
     position: fixed;

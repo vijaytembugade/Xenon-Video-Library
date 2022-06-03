@@ -35,17 +35,22 @@ export const VideoListing = () => {
   return (
     <>
       <div className="filter-container">
-        <div
-          className="btn btn-small btn-primary-outline"
-          onClick={() => setShowFilter((prevState) => !prevState)}
-        >
-          <span class="material-icons">apps</span>FILTERS
-        </div>
+        {!showFilter && (
+          <div
+            className="btn btn-small btn-primary"
+            onClick={() => setShowFilter(true)}
+          >
+            <span class="material-icons">apps</span>FILTERS
+          </div>
+        )}
         <div>{showFilter && <Filters setShowFilter={setShowFilter} />}</div>
       </div>
-      <h2 className="all-videos-title">All Videos ({videos.length})</h2>
+      <h2 className="all-videos-title">All Videos ({videos?.length})</h2>
+      <h4 className="all-videos-title gray-text">
+        {videos?.length === 0 && "No videos available for this filter!"}
+      </h4>
       <div className="videos-container-main">
-        {videos.map((video) => {
+        {videos?.map((video) => {
           return <VideoCard video={video} key={video._id} />;
         })}
       </div>

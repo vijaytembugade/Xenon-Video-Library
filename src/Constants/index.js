@@ -17,4 +17,5 @@ export {
   BY_AUTHOR,
   BY_CATEGORY,
   BY_CREATOR,
+  CLEAR_FILTER,
 } from "./filterConstants/filterConstants";

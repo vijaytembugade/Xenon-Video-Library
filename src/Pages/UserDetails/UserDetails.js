@@ -19,10 +19,17 @@ const UserDetails = () => {
   const { firstname, lastName, email } = user;
   return (
     <div className="userdetails-container">
-      <span>FirstName : {firstname}</span>
-      <span>LastName : {lastName}</span>
-      <span>Email : {email}</span>
-      <div>
+      <h2>User Details </h2>
+      <span>
+        First Name : <strong>{firstname}</strong>
+      </span>
+      <span>
+        Last Name : <strong>{lastName}</strong>
+      </span>
+      <span>
+        Email : <strong>{email}</strong>
+      </span>
+      <div className="logout-btn">
         <button className="btn btn-danger-outline" onClick={handleLogout}>
           Logout
         </button>

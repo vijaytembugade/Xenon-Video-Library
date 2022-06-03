@@ -28,6 +28,7 @@ const PlayList = () => {
       </div>
 
       <div className="flex-container all-playlist">
+        {playList.length === 0 && <h2>You have not created any playlist!</h2>}
         {playList?.map((list) => {
           return (
             <Link to={`/my-playlist/${list._id}`} key={list._id}>

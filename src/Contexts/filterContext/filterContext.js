@@ -6,7 +6,12 @@ import {
   useReducer,
   useState,
 } from "react";
-import { BY_AUTHOR, BY_CATEGORY, BY_CREATOR } from "../../Constants";
+import {
+  BY_AUTHOR,
+  BY_CATEGORY,
+  BY_CREATOR,
+  CLEAR_FILTER,
+} from "../../Constants";
 import { getAllAuthors, getAllCategory, getAllCreator } from "../../Services";
 import { useVideos } from "../videoContext/videoContext";
 const FilterContext = createContext();
@@ -39,6 +44,9 @@ const FilterProvider = ({ children }) => {
 
       case BY_CREATOR: {
         return { ...state, byCreator: action.payload };
+      }
+      case CLEAR_FILTER: {
+        return { byAuthor: [], byCreator: [], byCategory: [] };
       }
     }
   };

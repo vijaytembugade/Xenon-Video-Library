@@ -200,8 +200,7 @@ export const videos = [
   {
     _id: "BGuGJtpWLV8",
     thumbnail: "http://i3.ytimg.com/vi/BGuGJtpWLV8/maxresdefault.jpg",
-    title:
-      "Janaab Jaun Se Mulaqaat | Jaun Elia Biography | Performed BY Parth Vasani",
+    title: "Janaab Jaun Se Mulaqaat | Jaun Elia Biography | by Parth Vasani",
     description:
       "Let Parth Vasani take you back to the writings of the eminent Urdu poet Jaun Elia, and discover the man behind those celebrated ghazals and shayari.",
     creator: "KalArt",
