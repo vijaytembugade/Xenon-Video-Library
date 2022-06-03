@@ -17,8 +17,6 @@ const Filters = ({ setShowFilter }) => {
 
   const filterbarRef = useRef();
 
-  console.log(state);
-
   useOnClickOutside(filterbarRef, () => setShowFilter(false));
 
   const [selectedAuthors, setSelectedAuthor] = useState([]);
@@ -106,7 +104,7 @@ const Filters = ({ setShowFilter }) => {
           <span className="by-author">By Creator</span>
           <div>
             <Select
-              defaultValue={selectedCreator}
+              value={selectedCreator}
               onChange={handleSelectorChange}
               placeholder="Select Creator"
               styles={customStyles}
